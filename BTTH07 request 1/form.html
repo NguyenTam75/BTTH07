@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form1 {
+            align-items: center ;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Registration Form</h1>
+    <center>
+    <form action="" class="form1">
+        <table>
+            <tr>
+                <td>User ID:</td>
+                <td><input type="text" class="id"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="text" class="pass"></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" class="name"></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input type="text" class="address"></td>
+            </tr>
+            <tr>
+                <td>Country:</td>
+                <td><select name="choose" id="choose">
+                    <option value="">(Please select a country)</option>
+                    <option value="VN">VN</option>
+                    <option value="China">China</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Italy">italy</option>
+                  </select></td>
+            </tr>
+            <tr>
+                <td>Zip Code:</td> 
+                <td><input type="text" class="zipcode"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" class="email"></td>
+            </tr>
+            <tr>
+                <td>Sex:</td>
+                <td><input type="radio" name="sex" value="male" id="male">Male
+                      <input type="radio" name="sex" value="female" id="female">Female
+                </td>
+            </tr>
+            <tr>
+                <td>Language:</td>
+                <td><input type="checkbox" name="" id="english">English
+                      <input type="checkbox" name="" id="NonEng">Non-English</td>
+            </tr>
+            <tr>
+                <td>About:</td>
+                <td><textarea name="" id="" cols="30" rows="10"></textarea></td>
+            </tr>
+            
+        </table>
+        <button id="btn">Submit</button></center>
+</body>
+
+<script>
+    const id = document.querySelector(".id");
+    const pass = document.querySelector(".pass");
+    const name = document.querySelector(".name");
+    const address = document.querySelector(".address");
+    const zipcode = document.querySelector(".zipcode");
+    const email = document.querySelector(".email");
+    const btn = document.querySelector("#btn");
+    const checkbox = document.querySelectorAll("input[type=checkbox]");
+    const englished = document.querySelector("#english");
+    const noneng = document.querySelector("#NonEng");
+    const male = document.querySelector("#male");
+    const female = document.querySelector("#female");
+    const Choosing = document.querySelector('#choose')
+    var idValue = "";
+    var passValue = ""
+    var nameValue = ""
+    var zipcodeValue = ""
+    var emailValue = ""
+    var selectvalue = ""
+    var letters = /^[A-Za-z]+$/;
+    var reg = /^\d+$/;
+    var RegexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    
+
+    id.onblur = function(e) {
+        idValue = e.target.value;
+        console.log(idValue);
+        return idValue;
+    }
+    pass.onblur = function(e) {
+        passValue = e.target.value;
+        console.log(passValue);
+        return passValue;
+    }
+    name.onblur = function(e) {
+        nameValue = e.target.value;
+        console.log(nameValue);
+        return nameValue;
+    }
+    zipcode.onblur = function(e) {
+        zipcodeValue = e.target.value;
+        console.log(zipcodeValue);
+        return zipcodeValue;
+    }
+    email.onblur = function(e) {
+        emailValue = e.target.value;
+        console.log(emailValue);
+        return emailValue;
+    }
+    checkid = () => {
+        if (idValue === "") {
+            alert("Hãy nhập trường id")
+            
+        }
+        else if (idValue.length < 5 || idValue.length > 12) {
+            alert("Trường id phải từ 5 đến 12 kí tự")
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    checkpass = () => {
+        if (passValue === "") {
+            alert("Hãy nhập trường pass")
+            return false
+        }
+        else if (passValue.length < 7 || passValue.length > 12) {
+            alert("Trường pass phải từ 7 đến 12 kí tự")
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    checkname = () => {
+        if (nameValue === "") {
+            alert("Hãy nhập trường name")
+            return false
+        }
+        else if (!letters.test(nameValue)) {
+            alert("Trường name chỉ có chữ cái, xin nhập lại")
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    checkzipcode = () => {
+        if (zipcodeValue === "") {
+            alert("Hãy nhập trường zipcode")
+            return false
+        }
+        else if (!reg.test(zipcodeValue)) {
+            alert("Trường zipcode chỉ có chữ số, xin nhập lại")
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    checkiemail = () => {
+        if (emailValue === "") {
+            alert("Hãy nhập trường email")
+            return false
+        }
+        else if (!RegexEmail.test(emailValue)) {
+            alert("Trường email không hợp lệ, xin nhập lại")
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    Choosing.addEventListener("change",(e)=> {
+                selectvalue = e.target.value
+                console.log(selectvalue)
+                return selectvalue
+            })
+
+    checkSelect = () => {
+        if (selectvalue === '') {
+            alert("Hãy chọn trường select")
+            return false;
+        }
+            else {
+                return true;
+            }
+        }
+
+    CheckRadio = () => {
+        if (
+          male.checked === false &&
+          female.checked === false
+        ) {
+          alert("Xin hãy tick trường giới tính");
+          return false;
+        } else {
+          return true;
+        }
+    }
+    CheckCheckBox = () => {
+        
+        if (englished.checked === false && noneng.checked === false) {
+            alert("Hãy chọn trường language")
+            return false
+        }
+        else {
+            return true
+         }
+        
+    }
+
+    btn.onclick = () => {
+        checkid()
+        checkpass()
+        checkname()
+        checkzipcode()
+        checkiemail()
+        CheckRadio()
+        CheckCheckBox()
+        checkSelect()
+        if (checkid() && checkpass() && checkname() && checkzipcode() && checkiemail() && CheckRadio()) {
+            alert("Đăng ký thành công")
+        }
+    }
+    
+</script>
+</html>
