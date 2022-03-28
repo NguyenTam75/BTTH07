@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTTH07</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Registration Form</h1>
+    <div class="login">
+        <div class="box">
+            <form>
+                <table>
+                    <tr>
+                        <td>User id:</td>
+                        <td><input type="text" name="txtUser" required></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="txtPassword" required></td>
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type="text" name="txtName" required></td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td><input type="text" name="txtAddress"></td>
+                    </tr>
+                    <tr>
+                        <td>Country:</td>
+                        <td>
+                            <select>
+                            <option value="1">(Please select a country)</option>
+                            <option value="2">HN1</option>
+                            <option value="3">HN2</option>
+                        </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ZIP Code:</td>
+                        <td><input type="text" name="txtZip" required></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="email" name="txtEmail" required></td>
+                    </tr>
+
+                    <tr>
+                        <td>Sex:</td>
+                        <td>
+                            <input type="radio" name="Sex" required>Male
+                            <input type="radio" name="Sex" required>Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Language:</td>
+                        <td>
+                            <input type="checkbox" name="Language" required>English
+                            <input type="checkbox" name="Language" required>Non English
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>About:</td>
+                        <td><textarea cols="25" rows="8"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><input type="submit" value="Submit"></td>
+                    </tr>
+                </table>
+        </div>
+    </div>
+    <script src="js/kiemtra.js"></script>
+</body>
+
+</html>
